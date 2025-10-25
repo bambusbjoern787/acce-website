@@ -63,7 +63,7 @@
 
   <footer class="site-footer fade-in">
     <div class="container">
-      <p>&copy; 2025 ACCE. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> ACCE. All rights reserved.</p>
     </div>
   </footer>
 
@@ -80,7 +80,12 @@
       });
     }, options);
     faders.forEach(el => obs.observe(el));
+
+    // dynamic footer year
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
   });
   </script>
 </body>
 </html>
+```
