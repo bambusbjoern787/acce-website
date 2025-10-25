@@ -1,8 +1,9 @@
 :root{
+  /* Moodboard palette */
   --accent-1: #d6cec0;
-  --accent-2: #bccccd; /* Seitenhintergrund requested */
+  --accent-2: #bccccd; /* Seitenhintergrund */
   --accent-3: #34596e;
-  --accent-4: #3b4c5f; /* Buttons und Hero bar requested */
+  --accent-4: #3b4c5f; /* Buttons und Hero bar */
   --accent-5: #283442;
   --accent-6: #934925;
 
@@ -17,58 +18,173 @@
   --body-font: "Futura PT", "Century Gothic", "Trebuchet MS", sans-serif;
 }
 
-/* Hero-Hintergrund und CTA-Primärfarbe */
+/* Local fonts (place .woff2 files in assets/fonts/) */
+@font-face{
+  font-family: "Lato";
+  src: url("../assets/fonts/Lato-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: "Lato";
+  src: url("../assets/fonts/Lato-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: "Futura PT";
+  src: url("../assets/fonts/FuturaPT-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: "Futura PT";
+  src: url("../assets/fonts/FuturaPT-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base reset */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--body-font);
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  scroll-behavior:smooth;
+  line-height:1.5;
+}
+
+/* Layout */
+header,section,footer{padding:2rem;text-align:center}
+.container{max-width:var(--container);margin:0 auto;padding:0 1rem}
+
+/* Header */
+.site-header{padding:20px 0;display:flex;align-items:center;position:relative}
+.site-header .container{display:flex;align-items:center;justify-content:space-between}
+.logo img{height:34px}
+.nav a{margin-left:18px;color:var(--accent-5);text-decoration:none;font-weight:600;font-family:var(--title-font)}
+
+/* Hero (dark bar) */
 .hero{
   background: var(--accent-4);
   color: #ffffff;
-  padding: 64px 0;
-  border-radius: 12px;
+  padding:64px 0;
+  border-radius:12px;
 }
+.hero-grid{display:grid;grid-template-columns:1fr 520px;gap:48px;align-items:center;max-width:var(--container);margin:0 auto;padding:0 1rem}
+.eyebrow{font-family:var(--body-font);font-size:14px;color:rgba(255,255,255,0.82);margin:0 0 8px}
+.hero-copy h1{font-family:var(--title-font);font-size:48px;line-height:1.02;margin:0 0 16px;color:#ffffff}
+.lead{font-family:var(--body-font);color:rgba(255,255,255,0.88);margin:0 0 20px;font-size:18px}
 
-/* Stelle sicher, dass der hero-copy Text sichtbar ist */
-.hero .hero-copy,
-.hero .eyebrow,
-.hero .lead,
-.hero .meta,
-.hero .nav a,
-.site-header .logo img {
-  color: #ffffff;
-}
+/* CTAs */
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;font-family:var(--title-font);cursor:pointer;transition:transform .16s ease,box-shadow .16s ease}
+.btn:focus{outline:3px solid rgba(59,76,95,0.18);outline-offset:4px}
 
-/* Buttons */
+/* Primary button: white background on dark hero */
 .btn.primary{
   background: #ffffff;
   color: var(--accent-4);
-  border: 0;
-  box-shadow: 0 8px 20px rgba(11,18,32,0.08);
+  border:0;
+  box-shadow: 0 8px 20px rgba(11,18,32,0.12);
 }
+
+/* Ghost and outline keep visible strokes on hero */
 .btn.ghost{
   background: transparent;
-  color: var(--accent-4);
-  border: 2px solid rgba(59,76,95,0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.16);
 }
 .btn.outline{
   background: transparent;
-  color: var(--accent-4);
-  border: 2px solid var(--accent-6);
+  color: #ffffff;
+  border: 2px solid rgba(255,255,255,0.14);
 }
 
-/* Global body/background/text */
-body{
-  background: var(--bg);
-  color: var(--ink);
+/* When buttons appear outside hero (global defaults) */
+body:not(.in-hero) .btn.primary{
+  background: var(--accent-4);
+  color: #ffffff;
 }
 
-/* Footer kontrast anpassen */
-.site-footer{
-  background: rgba(11,18,32,0.04);
-  color: var(--muted);
+/* Meta line */
+.meta{font-family:var(--body-font);color:rgba(255,255,255,0.85);font-size:14px;margin-top:6px}
+.meta a{color:var(--accent-1);text-decoration:underline}
+
+/* Media */
+.hero-media img, .hero-media video{width:100%;height:auto;border-radius:14px;box-shadow:0 18px 40px rgba(11,18,32,0.12);display:block}
+
+/* Keep original image utilities */
+.media-img, .team-img, .product-img{
+  width:100%;
+  max-width:420px;
+  border-radius:10px;
+  display:block;
+  margin:1rem auto;
+  transition:transform .28s ease,box-shadow .28s ease;
+}
+.media-img:hover, .team-img:hover, .product-img:hover{transform:scale(1.03);box-shadow:0 12px 30px rgba(23,35,64,0.12)}
+
+/* Lists and small */
+ul{padding-left:1.25rem;text-align:left;display:inline-block}
+small{color:var(--muted)}
+
+/* Buttons (global) fallback for non-hero areas */
+button, .btn{
+  background:var(--accent);
+  color:#fff;
+  border:0;
+  padding:.6rem 1rem;
+  border-radius:8px;
+  cursor:pointer;
+  transition:transform .22s ease,background .22s ease;
+}
+button:hover,.btn:hover{transform:translateY(-3px);background:var(--muted)}
+
+/* Brand snapshot */
+.brand-snapshot{padding:48px 0;text-align:left}
+.brand-snapshot h2{font-family:var(--title-font);font-size:26px;color:var(--accent-5);margin-bottom:8px}
+.brand-snapshot p{color:var(--muted);margin:0 0 6px}
+
+/* Footer */
+footer{background:rgba(11,18,32,0.04);padding:2rem;font-size:.9rem;color:var(--ink)}
+.site-footer{padding:36px 0;color:var(--muted);text-align:center;border-top:1px solid rgba(11,18,32,0.04)}
+
+/* Forms */
+form input, form textarea{width:100%;max-width:560px;padding:.6rem;margin:.5rem 0;border:1px solid #d8e7fb;border-radius:6px}
+form textarea{min-height:120px;resize:vertical}
+
+/* Fade-in helper */
+.fade-in{
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .72s cubic-bezier(.22,.9,.32,1), transform .72s cubic-bezier(.22,.9,.32,1);
+  will-change:opacity,transform;
+}
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
-/* Bild-Schatten für hellen Hintergrund anpassen */
-.hero-media img, .hero-media video{
-  box-shadow: 0 18px 40px rgba(11,18,32,0.12);
+/* Responsive */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:28px;padding:0 1rem}
+  .hero-copy h1{font-size:34px}
+  .brand-snapshot{text-align:center}
+  .nav a{margin-left:12px}
+}
+@media (max-width:480px){
+  .lead{font-size:16px}
+  .btn{padding:10px 14px;font-size:14px}
 }
 
-/* Fokus- und Akkordeonfarben */
-.btn:focus{ outline:3px solid rgba(59,76,95,0.18); outline-offset:4px }
+/* Accessibility: focus visible */
+:focus{outline-offset:4px}
