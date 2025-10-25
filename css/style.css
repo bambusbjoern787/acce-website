@@ -99,6 +99,12 @@ header,section,footer{padding:2rem;text-align:center}
 .hero-copy h1{font-family:var(--title-font);font-size:48px;line-height:1.02;margin:0 0 16px;color:#ffffff}
 .lead{font-family:var(--body-font);color:rgba(255,255,255,0.88);margin:0 0 20px;font-size:18px}
 
+/* Hero title in requested color */
+.hero-copy h1,
+#hero-title {
+  color: #bccccd;
+}
+
 /* CTAs */
 .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
 .btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;font-family:var(--title-font);cursor:pointer;transition:transform .16s ease,box-shadow .16s ease}
