@@ -1,9 +1,9 @@
 :root{
   /* Moodboard palette */
   --accent-1: #d6cec0;
-  --accent-2: #bccccd; /* Seitenhintergrund */
+  --accent-2: #bccccd; /* Seitenhintergrund / Preview-Note */
   --accent-3: #34596e;
-  --accent-4: #3b4c5f; /* Buttons und Hero bar */
+  --accent-4: #3b4c5f; /* Buttons, Hero bar, Header oben */
   --accent-5: #283442;
   --accent-6: #934925;
 
@@ -66,13 +66,28 @@ body{
 header,section,footer{padding:2rem;text-align:center}
 .container{max-width:var(--container);margin:0 auto;padding:0 1rem}
 
-/* Header */
-.site-header{padding:20px 0;display:flex;align-items:center;position:relative}
+/* Header (oben in accent-4) */
+.site-header{
+  padding:20px 0;
+  display:flex;
+  align-items:center;
+  position:relative;
+  background: var(--accent-4);
+  color: #ffffff;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
 .site-header .container{display:flex;align-items:center;justify-content:space-between}
 .logo img{height:34px}
-.nav a{margin-left:18px;color:var(--accent-5);text-decoration:none;font-weight:600;font-family:var(--title-font)}
+.nav a{
+  margin-left:18px;
+  color: #ffffff;
+  text-decoration:none;
+  font-weight:600;
+  font-family:var(--title-font)
+}
 
-/* Hero (dark bar) */
+/* Hero (dark bar matches accent-4) */
 .hero{
   background: var(--accent-4);
   color: #ffffff;
@@ -118,6 +133,20 @@ body:not(.in-hero) .btn.primary{
 /* Meta line */
 .meta{font-family:var(--body-font);color:rgba(255,255,255,0.85);font-size:14px;margin-top:6px}
 .meta a{color:var(--accent-1);text-decoration:underline}
+
+/* Preview note (grün eingekreist) - set to accent-2 (#bccccd) */
+.hero .preview,
+.hero .preview-note,
+.hero-media .caption,
+.hero-media + .preview,
+.hero .hero-preview{
+  color: var(--accent-2);
+  font-weight:600;
+  font-family:var(--title-font);
+}
+
+/* Ensure caption visibility on dark background */
+.hero-media .caption a{color: var(--accent-2); text-decoration:underline}
 
 /* Media */
 .hero-media img, .hero-media video{width:100%;height:auto;border-radius:14px;box-shadow:0 18px 40px rgba(11,18,32,0.12);display:block}
