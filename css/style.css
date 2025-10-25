@@ -18,11 +18,24 @@
   --body-font: "Futura PT", "Century Gothic", "Trebuchet MS", sans-serif;
 }
 
-/* Font-face for Futura PT (place FuturaPT-Book.woff2 in assets/fonts/) */
+/* Local fonts (place .woff2 files in assets/fonts/) */
+@font-face{
+  font-family: "Lato";
+  src: url("../assets/fonts/Lato-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: "Lato";
+  src: url("../assets/fonts/Lato-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 @font-face{
   font-family: "Futura PT";
-  src: url("../assets/fonts/FuturaPT-Book.woff2") format("woff2"),
-       url("../assets/fonts/FuturaPT-Book.woff") format("woff");
+  src: url("../assets/fonts/FuturaPT-Book.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
