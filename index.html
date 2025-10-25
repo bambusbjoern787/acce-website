@@ -4,14 +4,18 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>ACCE – Accessible Solutions</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-  <header class="hero fade-in">
+  <header class="site-header">
     <div class="container">
-      <img src="assets/logo.png" alt="ACCE logo" class="logo"/>
-      <h1>We create accessible solutions that open doors for people.</h1>
-      <nav>
+      <a class="logo" href="/"><img src="assets/logo.png" alt="ACCE logo" /></a>
+      <nav class="nav">
         <a href="mission.html">Our Mission</a>
         <a href="products.html">Discover Products</a>
         <a href="team.html">Meet the Team</a>
@@ -19,15 +23,45 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="fade-in">
+  <main>
+    <!-- Hero (new) -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy fade-in">
+          <p class="eyebrow">Designed by ACCE</p>
+          <h1 id="hero-title">We create accessible solutions that open doors for people</h1>
+          <p class="lead">Minimalist, inclusive design for everyday life.</p>
+
+          <div class="ctas" role="group" aria-label="Primary actions">
+            <a class="btn primary" href="mission.html">Our Mission</a>
+            <a class="btn ghost" href="products.html">Discover Products</a>
+            <a class="btn outline" href="team.html">Meet the Team</a>
+          </div>
+
+          <p class="meta">Follow us for previews on <a href="https://www.tiktok.com" target="_blank" rel="noopener">TikTok</a> and <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a>.</p>
+        </div>
+
+        <div class="hero-media fade-in" role="img" aria-label="Preview of ACCE products">
+          <img
+            src="assets/hero-1200.jpg"
+            srcset="assets/hero-480.jpg 480w, assets/hero-800.jpg 800w, assets/hero-1200.jpg 1200w"
+            sizes="(max-width:980px) 100vw, 520px"
+            alt="Preview of ACCE product collection"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Snapshot -->
+    <section class="brand-snapshot container fade-in">
       <h2>Brand Snapshot</h2>
       <p>Minimalist, inclusive design for everyday life. Designed by ACCE.</p>
       <small>Follow us on TikTok and Instagram for product previews</small>
     </section>
   </main>
 
-  <footer class="fade-in">
+  <footer class="site-footer fade-in">
     <div class="container">
       <p>&copy; 2025 ACCE. All rights reserved.</p>
     </div>
