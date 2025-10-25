@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Mission & Vision – ACCE</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <main class="container">
+    <section class="fade-in">
+      <img src="assets/mission.svg" alt="" width="80" aria-hidden="true"/>
+      <h2>Mission</h2>
+      <p>Designing products with a focus on inclusivity, harnessing our passion for empowering people of all abilities.</p>
+    </section>
+
+    <section class="fade-in">
+      <img src="assets/vision.svg" alt="" width="80" aria-hidden="true"/>
+      <h2>Vision</h2>
+      <p>A world where accessibility is embedded into everyday life, so everyone can live, study, work and thrive without barriers.</p>
+    </section>
+  </main>
+
+  <footer class="fade-in">
+    <div class="container"><p>&copy; 2025 ACCE</p></div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const faders = document.querySelectorAll('.fade-in');
+    const options = { threshold: 0.18, rootMargin: "0px 0px -60px 0px" };
+    const obs = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+    faders.forEach(el => obs.observe(el));
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ACCE – Accessible Solutions</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header class="hero fade-in">
+    <div class="container">
+      <img src="assets/logo.png" alt="ACCE logo" class="logo"/>
+      <h1>We create accessible solutions that open doors for people.</h1>
+      <nav>
+        <a href="mission.html">Our Mission</a>
+        <a href="products.html">Discover Products</a>
+        <a href="team.html">Meet the Team</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="fade-in">
+      <h2>Brand Snapshot</h2>
+      <p>Minimalist, inclusive design for everyday life. Designed by ACCE.</p>
+      <small>Follow us on TikTok and Instagram for product previews</small>
+    </section>
+  </main>
+
+  <footer class="fade-in">
+    <div class="container">
+      <p>&copy; 2025 ACCE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const faders = document.querySelectorAll('.fade-in');
+    const options = { threshold: 0.18, rootMargin: "0px 0px -60px 0px" };
+    const obs = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+    faders.forEach(el => obs.observe(el));
+  });
+  </script>
+</body>
+</html>

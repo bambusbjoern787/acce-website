@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Products – ACCE</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <main class="container">
+    <section class="fade-in">
+      <img src="assets/totebag.jpg" alt="ACCE Tote Bag" class="product-img"/>
+      <h2>ACCE Tote Bag</h2>
+      <p>Minimalist, genderless design. Designed in the UK. <strong>Coming soon.</strong></p>
+    </section>
+
+    <section class="fade-in">
+      <h3>Future categories</h3>
+      <ul>
+        <li>Accessories</li>
+        <li>Apparel</li>
+        <li>Digital Tools</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="fade-in"><div class="container"><p>&copy; 2025 ACCE</p></div></footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const faders = document.querySelectorAll('.fade-in');
+    const options = { threshold: 0.18, rootMargin: "0px 0px -60px 0px" };
+    const obs = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+    faders.forEach(el => obs.observe(el));
+  });
+  </script>
+</body>
+</html>

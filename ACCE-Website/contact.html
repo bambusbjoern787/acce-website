@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Contact – ACCE</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <main class="container">
+    <section class="fade-in">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your name" required/>
+        <input type="email" placeholder="Your email" required/>
+        <textarea placeholder="Message"></textarea>
+        <div style="margin-top:.6rem">
+          <button type="submit">Send</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="fade-in">
+      <h3>Newsletter</h3>
+      <p>Stay ACCE — updates straight to your inbox.</p>
+      <input type="email" placeholder="Your email"/><button class="btn" style="margin-left:.6rem">Subscribe</button>
+    </section>
+  </main>
+
+  <footer class="fade-in"><div class="container"><p>&copy; 2025 ACCE</p></div></footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const faders = document.querySelectorAll('.fade-in');
+    const options = { threshold: 0.18, rootMargin: "0px 0px -60px 0px" };
+    const obs = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+    faders.forEach(el => obs.observe(el));
+  });
+  </script>
+</body>
+</html>
